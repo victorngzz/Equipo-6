@@ -9,7 +9,7 @@ option = st.selectbox(
 ('RC Temp Average - 1era Posición', 'FC Temp Average - 1era Posición', 'RC Temp Average - 2da Posición', 'FC Temp Average - 2da Posición'))
 st.write('You selected:', option)
 
-df = pd.read_excel("/Users/victo/Desktop/Everything/Streamlit/Familias y estándares de temperatura.xlsx")
+df = pd.read_excel("/Users/victo/Desktop/Everything/Streamlit/Familias y estandares de temperatura.xlsx")
 
 if option == 'RC Temp Average - 1era Posición':
     fig = px.pie(df, values = 'PerRC1', names = "Fam", color_discrete_sequence = px.colors.sequential.YlOrBr)
