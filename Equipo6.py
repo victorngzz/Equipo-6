@@ -9,7 +9,7 @@ option = st.selectbox(
 ('RC Temp Average - 1era Posición', 'FC Temp Average - 1era Posición', 'RC Temp Average - 2da Posición', 'FC Temp Average - 2da Posición'))
 st.write('You selected:', option)
 
-df = pd.read_excel("C:\Users\victo\Desktop\Everything\Streamlit\Familias y estandares de temperatura.xlsx")
+df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Familias y estandares de temperatura.xlsx")
 
 if option == 'RC Temp Average - 1era Posición':
     fig = px.pie(df, values = 'PerRC1', names = "Fam", color_discrete_sequence = px.colors.sequential.YlOrBr)
@@ -79,25 +79,25 @@ option = st.selectbox(
 st.write('You selected:', option)
 
 if option == 'Familias':
-    df = pd.read_excel("C:\Users\victo\Desktop\Everything\Streamlit\Fam Below.xlsx")
+    df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Fam Below.xlsx")
     fig = px.bar(df, x='Familias', y='Below Rating Point', color = 'Familias', color_discrete_sequence=["#eeb111", "black"])
     fig.add_hline(y=3, line_color='Red')
     st.write(fig)
 
 elif option == 'Refrigerantes':
-    df = pd.read_excel("C:\Users\victo\Desktop\Everything\Streamlit\Ref Below.xlsx")
+    df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Ref Below.xlsx")
     fig = px.bar(df, x='Refrigerantes', y='Below Rating Point', color = 'Refrigerantes', color_discrete_sequence=["#eeb111", "black"])
     fig.add_hline(y=3, line_color='Red')
     st.write(fig)
 
 elif option == 'Compresor':
-    df = pd.read_excel("C:\Users\victo\Desktop\Everything\Streamlit\Com Below.xlsx")
+    df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Com Below.xlsx")
     fig = px.bar(df, x='Compresores', y='Below Rating Point', color = 'Compresores', color_discrete_sequence=["#eeb111", "black"])
     fig.add_hline(y=3, line_color='Red')
     st.write(fig)
 
 else:
-    df = pd.read_excel("C:\Users\victo\Desktop\Everything\Streamlit\Tec Below.xlsx")
+    df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Tec Below.xlsx")
     fig = px.bar(df, x='Tecnología', y='Below Rating Point', color = 'Tecnología', color_discrete_sequence=["#eeb111", "black"])
     fig.add_hline(y=3, line_color='Red')
     st.write(fig)
@@ -105,7 +105,7 @@ else:
 
 st.title("Temperaturas por Familia")
 
-df = pd.read_excel("C:\Users\victo\Desktop\Everything\Streamlit\WORKFILE Supsa Energy Audit Information - Marzo 2022 - Actualizada.xlsx")
+df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\WORKFILE Supsa Energy Audit Information - Marzo 2022 - Actualizada.xlsx")
 
 df.rename(columns = {'% Below Rating Point':'Below_Rating_Point_per',
 'RC1 Temp Â°F':'RC1_Temp_F',
