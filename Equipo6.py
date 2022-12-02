@@ -1,3 +1,4 @@
+from pathlib import Path
 import streamlit as st
 import plotly.express as px
 import pandas as pd
@@ -9,7 +10,10 @@ option = st.selectbox(
 ('RC Temp Average - 1era Posición', 'FC Temp Average - 1era Posición', 'RC Temp Average - 2da Posición', 'FC Temp Average - 2da Posición'))
 st.write('You selected:', option)
 
-df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Familias y estandares de temperatura.xlsx")
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd
+famstemps = current_dir / "Familias y estandares de temperatura.xlsx"
+#("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Familias y estandares de temperatura.xlsx")
+df = pd.read_excel(famstemps)
 
 if option == 'RC Temp Average - 1era Posición':
     fig = px.pie(df, values = 'PerRC1', names = "Fam", color_discrete_sequence = px.colors.sequential.YlOrBr)
@@ -79,25 +83,33 @@ option = st.selectbox(
 st.write('You selected:', option)
 
 if option == 'Familias':
-    df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Fam Below.xlsx")
+    #("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Fam Below.xlsx")
+    fam = current_dir / "Fam Below.xlsx"
+    df = pd.read_excel(fam)
     fig = px.bar(df, x='Familias', y='Below Rating Point', color = 'Familias', color_discrete_sequence=["#eeb111", "black"])
     fig.add_hline(y=3, line_color='Red')
     st.write(fig)
 
 elif option == 'Refrigerantes':
-    df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Ref Below.xlsx")
+    #("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Ref Below.xlsx")
+    ref = current_dir / "Ref Below.xlsx"
+    df = pd.read_excel(ref)
     fig = px.bar(df, x='Refrigerantes', y='Below Rating Point', color = 'Refrigerantes', color_discrete_sequence=["#eeb111", "black"])
     fig.add_hline(y=3, line_color='Red')
     st.write(fig)
 
 elif option == 'Compresor':
-    df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Com Below.xlsx")
+    #("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Com Below.xlsx")
+    com = current_dir / "Com Below.xlsx"
+    df = pd.read_excel(com)
     fig = px.bar(df, x='Compresores', y='Below Rating Point', color = 'Compresores', color_discrete_sequence=["#eeb111", "black"])
     fig.add_hline(y=3, line_color='Red')
     st.write(fig)
 
 else:
-    df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Tec Below.xlsx")
+    #("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Tec Below.xlsx")
+    tec = current_dir / "Tec Below.xlsx"
+    df = pd.read_excel(tec)
     fig = px.bar(df, x='Tecnología', y='Below Rating Point', color = 'Tecnología', color_discrete_sequence=["#eeb111", "black"])
     fig.add_hline(y=3, line_color='Red')
     st.write(fig)
@@ -105,7 +117,9 @@ else:
 
 st.title("Temperaturas por Familia")
 
-df = pd.read_excel("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\WORKFILE Supsa Energy Audit Information - Marzo 2022 - Actualizada.xlsx")
+#("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\WORKFILE Supsa Energy Audit Information - Marzo 2022 - Actualizada.xlsx")
+supsa = current_dir / "WORKFILE Supsa Energy Audit Information - Marzo 2022 - Actualizada.xlsx"
+df = pd.read_excel(supsa)
 
 df.rename(columns = {'% Below Rating Point':'Below_Rating_Point_per',
 'RC1 Temp Â°F':'RC1_Temp_F',
