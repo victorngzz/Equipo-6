@@ -3,6 +3,8 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd
+
 st.title("Análisis de Below Rating Point")
 
 option = st.selectbox(
@@ -98,7 +100,6 @@ option = st.selectbox(
 ('RC Temp Average - 1era Posición', 'FC Temp Average - 1era Posición', 'RC Temp Average - 2da Posición', 'FC Temp Average - 2da Posición'))
 st.write('You selected:', option)
 
-current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd
 famstemps = current_dir / "Familias y estandares de temperatura.xlsx"
 #("C:\\Users\\victo\\Desktop\\Everything\\Streamlit\\Familias y estandares de temperatura.xlsx")
 df = pd.read_excel(famstemps)
